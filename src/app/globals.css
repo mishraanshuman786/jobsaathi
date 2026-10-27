@@ -1,26 +1,51 @@
 @import "tailwindcss";
 
+/* dark mode is controlled by the "dark" class that next-themes puts on <html> */
+/* stylelint-disable at-rule-no-unknown */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fafafb;
+  --surface: #ffffff;
+  --border: #e5e7eb;
+  --foreground: #111827;
+  --muted: #4b5563;
+  --primary: #4f46e5;
+  --primary-foreground: #ffffff;
+  --primary-soft: #eef2ff;
+  --success: #15803d;
+  --warning: #b45309;
+}
+
+.dark {
+  --background: #0b0d12;
+  --surface: #14171f;
+  --border: #262b36;
+  --foreground: #f3f4f6;
+  --muted: #a3a9b6;
+  --primary: #818cf8;
+  --primary-foreground: #0b0d12;
+  --primary-soft: #1e2140;
+  --success: #4ade80;
+  --warning: #fbbf24;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-soft: var(--primary-soft);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --font-sans: var(--font-inter), system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
